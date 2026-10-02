@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Una disculpa especial V6 💛</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="musicToggle" class="music-toggle" aria-label="Música">♫</button>
+
+  <!-- LOADING -->
+  <section id="loading" class="screen active">
+    <div class="loading-card">
+      <div class="loading-heart">💛</div>
+      <h1>Cargando una pequeña sorpresa...</h1>
+      <div class="loading-bar"><span id="loadingFill"></span></div>
+    </div>
+  </section>
+
+  <!-- INICIO -->
+  <section id="inicio" class="screen">
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+    <div class="stars-deco s1"></div>
+    <div class="stars-deco s2"></div>
+
+    <div class="hero-shell">
+      <div class="hero-copy">
+        <p class="hero-tag">Hecho con cariño ✨</p>
+        <h1>Preparé algo especial para ti</h1>
+        <p class="hero-text">
+          No quería darte una disculpa cualquiera, así que hice una mini experiencia con juegos espero que me perdones,
+          preguntas y una carta. <strong>Toca la imagen</strong> para empezar.
+        </p>
+
+        <div class="hero-points">
+          <span>🌻 girasoles</span>
+          <span>☁️ nubes</span>
+          <span>🧍 meta</span>
+          <span>❓ preguntas</span>
+          <span>💌 carta</span>
+        </div>
+      </div>
+
+      <button id="btnImagenInicio" class="hero-image-button" aria-label="Empezar experiencia">
+        <img src="assets/inicio.png" alt="Botón de inicio" />
+        <div class="hero-image-overlay">
+          <div class="hero-chip">Toca para iniciar 💛</div>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- INTRO GIRASOLES -->
+  <section id="introGirasoles" class="screen">
+    <div class="card">
+      <div class="emoji-big">🌻</div>
+      <h2>Juego 1: atrapa 10 girasoles</h2>
+      <p>Toca los girasoles que vayan apareciendo. Cuando llegues a <strong>10</strong>, desbloqueas el siguiente nivel.</p>
+      <button id="btnIniciarGirasoles" class="primary-btn">Comenzar 🌻</button>
+    </div>
+  </section>
+
+  <!-- JUEGO 1 -->
+  <section id="girasoles" class="screen game-soft">
+    <div class="hud hud-soft">
+      <div>Girasoles: <strong><span id="sunScore">0</span>/10</strong></div>
+      <div class="hud-right">Atrápalos rápido ✨</div>
+    </div>
+
+    <div id="sunGameArea" class="sun-game-area">
+      <div class="sunshine"></div>
+      <div class="deco-flower d1">🌼</div>
+      <div class="deco-flower d2">🌸</div>
+      <div class="deco-flower d3">🌼</div>
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+      <div class="grass"></div>
+    </div>
+  </section>
+
+  <!-- INTRO NUBES -->
+  <section id="introRetro" class="screen">
+    <div class="card">
+      <div class="emoji-big">☁️</div>
+      <h2>Juego 2: nubes de tormenta</h2>
+      <p>Mueve la nave y elimina <strong>10 nubes de tormenta</strong> para avanzar al siguiente juego.</p>
+      <div class="retro-hints">
+        <span>⌨️ A / ← izquierda</span>
+        <span>⌨️ D / → derecha</span>
+        <span>⌨️ Espacio disparar</span>
+        <span>📱 Botones para celular</span>
+      </div>
+      <button id="btnIniciarRetro" class="primary-btn">Jugar ☁️</button>
+    </div>
+  </section>
+
+  <!-- JUEGO 2 -->
+  <section id="retroGame" class="screen retro-screen">
+    <div class="retro-wrapper">
+      <div class="retro-panel">
+        <div class="retro-stat">💖 <span id="lives">3</span></div>
+        <div class="retro-stat">🎯 <span id="kills">0</span>/10</div>
+        <div class="retro-stat">🪙 <span id="coins">323</span></div>
+      </div>
+
+      <div class="canvas-shell">
+        <canvas id="retroCanvas" width="800" height="560" aria-label="Juego arcade"></canvas>
+      </div>
+
+      <div class="mobile-controls">
+        <button id="leftBtn" class="ctrl-btn">◀</button>
+        <button id="shootBtn" class="ctrl-btn ctrl-main">●</button>
+        <button id="rightBtn" class="ctrl-btn">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO META -->
+  <section id="introMaze" class="screen">
+    <div class="card">
+      <div class="emoji-big">🧍</div>
+      <h2>Juego 3: llega a la meta</h2>
+      <p>Ahora controla a una persona y llega hasta la meta. Evita los muros oscuros y encuentra el camino correcto.</p>
+      <div class="retro-hints">
+        <span>⌨️ A/W/S/D o flechas</span>
+        <span>📱 Botones táctiles</span>
+      </div>
+      <button id="btnIniciarMaze" class="primary-btn">Ir a la meta 🏁</button>
+    </div>
+  </section>
+
+  <!-- JUEGO 3 -->
+  <section id="mazeGame" class="screen maze-screen">
+    <div class="maze-shell">
+      <div class="maze-hud">
+        <div>🧍 Personaje</div>
+        <div>🏁 Llega a la meta</div>
+      </div>
+
+      <div id="mazeBoard" class="maze-board"></div>
+
+      <div class="maze-controls">
+        <button id="mazeUp" class="maze-btn">▲</button>
+        <div class="maze-middle">
+          <button id="mazeLeft" class="maze-btn">◀</button>
+          <button id="mazeDown" class="maze-btn">▼</button>
+          <button id="mazeRight" class="maze-btn">▶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <section id="quiz1" class="screen">
+    <div class="card quiz-card">
+      <div class="emoji-big">❓</div>
+      <h2>Pregunta 1</h2>
+      <p class="question-text">¿Cuál es mi frase?</p>
+
+      <div class="options-grid" id="quiz1Options">
+        <button class="option-btn" data-correct="true">sospechoso</button>
+        <button class="option-btn">aea</button>
+        <button class="option-btn">ta bn</button>
+        <button class="option-btn">queso</button>
+      </div>
+
+      <div class="feedback-box">
+        <p id="quiz1Feedback" class="feedback"></p>
+        <img id="quiz1Img" class="feedback-img hidden" alt="Respuesta visual" />
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <section id="quiz2" class="screen">
+    <div class="card quiz-card">
+      <div class="emoji-big">💭</div>
+      <h2>Pregunta 2</h2>
+      <p class="question-text">¿Qué tenemos pendiente?</p>
+
+      <div class="options-grid" id="quiz2Options">
+        <button class="option-btn">ver película</button>
+        <button class="option-btn">ver fede</button>
+        <button class="option-btn" data-correct="true">ver el dorama</button>
+        <button class="option-btn">go brawstars?</button>
+      </div>
+
+      <div class="feedback-box">
+        <p id="quiz2Feedback" class="feedback"></p>
+        <img id="quiz2Img" class="feedback-img hidden" alt="Respuesta visual" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section id="final" class="screen final-screen">
+    <div id="confetti" class="confetti-layer"></div>
+
+    <div class="letter-layout">
+      <div class="photo-card left-photo photo-tall">
+        <img src="assets/carta_lado.png" alt="Imagen especial" />
+        <span>Esto también va con cariño 💐</span>
+      </div>
+
+      <article class="letter">
+        <div class="seal">💌</div>
+        <p class="letter-top">Para alguien muy especial</p>
+        <h2>Perdóname Darling</h2>
+
+        <p>
+          Lamento por aveces hacerte sentir mal y hacerte enojar de paso simplemente no tolero verte triste y deprimida porque tu en mi vida traes ese brillo
+        </p>
+
+        <p>
+          Cada juego, cada pantalla y cada detalle estuvo pensado con cariño, para que
+          puedas sentir lo importante que eres y lo mucho que quería expresarte esto y no me cansare de programar para ti.
+        </p>
+
+        <p>
+          Tal vez no solucione todo de inmediato, pero sí quería demostrarte  y que tampoco estoy presencialmente pero basta con que que me esfuerce
+          en hacer algo bonito solo para ti.
+        </p>
+
+        <p class="highlight">
+          Gracias por quedarte, por leer, por jugar y por dejarme intentar hablarte de una
+          forma especial. 🌻☁️🧍💛
+        </p>
+
+        <button id="btnToForgive" class="primary-btn">Seguir 💛</button>
+      </article>
+
+      <div class="photo-card right-photo">
+        <img src="assets/icon1.png" alt="Imagen decorativa" />
+        <span>Un detallito más ✨</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTA FINAL -->
+  <section id="forgive" class="screen">
+    <div class="card forgive-card">
+      <div class="emoji-big">🥺</div>
+      <h2>Última pregunta...</h2>
+      <p class="question-text big-question">¿Me perdonas?</p>
+
+      <div class="forgive-buttons">
+        <button id="forgiveYes" class="primary-btn">Sí 💛</button>
+        <button id="forgiveNo" class="secondary-btn">No 😔</button>
+      </div>
+
+      <p id="forgiveFeedback" class="feedback"></p>
+      <img id="forgiveImg" class="feedback-img hidden" alt="Respuesta final" />
+      <button id="btnReiniciar" class="secondary-btn hidden">Volver a empezar ↻</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
